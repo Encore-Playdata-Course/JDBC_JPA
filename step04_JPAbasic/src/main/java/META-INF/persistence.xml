@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="step00_basic">
+		<class>step01.entity.Customer</class>
+		<class>step01.entity.Member</class>
+			
+		<properties>
+			<!-- db접속 정보 설정 tag와  속성 -->
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+			<property name="javax.persistence.jdbc.user" value="SCOTT" />
+			<property name="javax.persistence.jdbc.password" value="TIGER" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
+
+
+			<!-- 옵션 : table을 java 어노테이션을 통해서 자동 생성시키는 옵션들-->
+			
+			<!-- console창에 sql 문장 출력 -->
+			<property name="hibernate.show_sql" value="true" />
+			<!-- 출력되는 sql문장에 가독성을 고려한 들여쓰기 등 반영 -->
+			<property name="hibernate.format_sql" value="true" />
+			<!-- entity와 sql 부연 설명 -->
+			<property name="hibernate.use_sql_comments" value="true" />
+			<!--  -->
+			<property name="hibernate.id.new_generator_mappings" value="true" />
+
+			<!--  Entity 객체 생성시 마다 table 생성? 이미 존재하는 table 재사용? 에 대한 설정
+				value="create" : 무조건 새롭게 table 생성
+								drop -> create
+								- 개발시에 table용 설정
+				value="none" : table 생성없이 이미 존재하는 table 활용
+								-실제 서비스하는 설정 
+			-->
+ 			<property name="hibernate.hbm2ddl.auto" value="create" />  
+		 	<!-- <property name="hibernate.hbm2ddl.auto" value="none" />  -->
+			
+			</properties>
+		</persistence-unit>
+</persistence>

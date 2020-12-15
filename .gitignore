@@ -1,0 +1,14 @@
+/.metadata/
+/.git/
+/.recommenders/
+*/.settings/
+*/bin/
+.classpath
+.project
+*.zip
+*/target/
+*/doc/
+*.txt
+*.jar
+.project
+/miniproject_1203/
